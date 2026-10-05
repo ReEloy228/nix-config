@@ -1,0 +1,9 @@
+{ ... }:
+{
+  networking.hostName = "nixos";
+  networking.networkmanager.enable = true;
+  boot.kernel.sysctl = {
+    "fs.inotify.max_user_watches" = 524288;
+    "fs.inotify.max_user_instances" = 1024;
+  };
+}
