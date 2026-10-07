@@ -90,6 +90,7 @@
       overlays = [
         (final: prev: {
           caelestia-sync = caelestia-stylix-sync.packages.${system}.caelestia-sync;
+          v2raya = final.callPackage ./external/v2raya.nix { };
         })
       ];
     in
