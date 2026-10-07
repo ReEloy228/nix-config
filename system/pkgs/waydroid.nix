@@ -1,5 +1,4 @@
 {
-  self,
   pkgs,
   inputs,
   ...
@@ -19,6 +18,5 @@
   environment.systemPackages = [
     inputs.waydroid-script.packages.${pkgs.stdenv.hostPlatform.system}.waydroid_script
     pkgs.waydroid-helper
-    self.packages.${pkgs.stdenv.hostPlatform.system}.waydroid-total-spoof
   ];
 }

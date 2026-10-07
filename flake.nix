@@ -96,7 +96,6 @@
     {
       packages.${system} = {
         palera1n = pkgs.callPackage ./external/palera1n.nix { };
-        waydroid-total-spoof = pkgs.callPackage ./external/waydroid-total-spoof.nix { };
       };
 
       nixosConfigurations.nixos = nixpkgs.lib.nixosSystem {
