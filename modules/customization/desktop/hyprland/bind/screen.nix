@@ -2,7 +2,7 @@
 {
   wayland.windowManager.hyprland.settings.bind = [
     "SUPER SHIFT, P, exec, hyprpicker -a"
-    "SUPER, Print, exec, grim - | wl-copy"
+    "SHIFT, Print, exec, caelestia screenshot"
     ", Print, exec, grim -g \"$(slurp)\" - | wl-copy"
   ];
 }
