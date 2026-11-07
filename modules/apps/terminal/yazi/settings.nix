@@ -1,7 +1,7 @@
 { ... }:
 {
   programs.yazi.settings = {
-    manager = {
+    mgr = {
       ratio = [
         1
         4

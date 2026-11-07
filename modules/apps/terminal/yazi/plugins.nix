@@ -1,13 +1,21 @@
 { pkgs, ... }:
 {
   programs.yazi.plugins = {
+    "git" = {
+      package = pkgs.yaziPlugins.git;
+      setup = true;
+    };
+    # "glow" может требовать setup, если вы хотите настроить его поведение
+    # "glow" = {
+    #   package = pkgs.yaziPlugins.glow;
+    #   setup = true;
+    # };
+
     "smart-enter" = pkgs.yaziPlugins.smart-enter;
     "smart-filter" = pkgs.yaziPlugins.smart-filter;
     "chmod" = pkgs.yaziPlugins.chmod;
-    "full-border" = pkgs.yaziPlugins.full-border;
-    "git" = pkgs.yaziPlugins.git;
     "toggle-pane" = pkgs.yaziPlugins.toggle-pane;
-    "glow" = pkgs.yaziPlugins.glow;
     "mount" = pkgs.yaziPlugins.mount;
+    "wl-clipboard" = pkgs.yaziPlugins.wl-clipboard;
   };
 }

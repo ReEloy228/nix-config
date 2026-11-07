@@ -45,6 +45,10 @@
       url = "github:FlameFlag/nixcord";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    serein = {
+      url = "github:ViceVerse-cz/Serein";
+      inputs.nixpkgs.follows = "nixpkgs-unstable";
+    };
 
     zapret-discord-youtube.url = "github:kartavkun/zapret-discord-youtube";
     base16-zed = {
@@ -57,6 +61,10 @@
 
     freesmlauncher = {
       url = "github:FreesmTeam/FreesmLauncher";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+    rust-overlay = {
+      url = "github:oxalica/rust-overlay";
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };
@@ -78,19 +86,40 @@
       caelestia-stylix-sync,
       zen-browser,
       nixcord,
+      serein,
       zapret-discord-youtube,
       elegant-grub2-themes,
       freesmlauncher,
       kopuz,
+      rust-overlay,
       ...
     }@inputs:
     let
       system = "x86_64-linux";
       pkgs = import nixpkgs { inherit system; };
       overlays = [
+        inputs.rust-overlay.overlays.default
         (final: prev: {
           caelestia-sync = caelestia-stylix-sync.packages.${system}.caelestia-sync;
           v2raya = final.callPackage ./external/v2raya.nix { };
+          photo-craft = final.callPackage ./external/art-craft/photo-craft.nix { };
+          effect-craft = final.callPackage ./external/art-craft/effect-craft.nix { };
+          word-craft = final.callPackage ./external/art-craft/word-craft.nix { };
+          serein = prev.serein.override (
+            oldAttrs:
+            let
+              # Явно определяем последний стабильный Rust из rust-overlay
+              rustToolchain = final.rust-bin.stable.latest.default;
+              newRustPlatform = final.makeRustPlatform {
+                cargo = rustToolchain;
+                rustc = rustToolchain;
+              };
+            in
+            {
+              # Переопределяем rustPlatform целиком для этого пакета
+              rustPlatform = newRustPlatform;
+            }
+          );
         })
       ];
     in

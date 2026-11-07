@@ -1,4 +1,9 @@
-{ config, lib, pkgs, ... }:
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}:
 
 let
   extensionsDir = "${config.home.homeDirectory}/.local/share/zed/extensions/installed";
@@ -16,20 +21,22 @@ let
     mkdir -p "${extensionsDir}/${extensionName}"
     cp -r ${extensionSrc}/* "${extensionsDir}/${extensionName}/"
     chmod -R u+w "${extensionsDir}/${extensionName}"
-    echo "Exstention ${extensionName} installed to ${extensionsDir}/${extensionName}"
+    echo "Extension ${extensionName} installed to ${extensionsDir}/${extensionName}"
   '';
 
-in {
+in
+{
   home.packages = with pkgs; [
     netcoredbg
-    rustup
-    gcc          
-    binutils 
+    (rust-bin.stable.latest.default.override {
+      targets = [ "wasm32-wasip2" ];
+    })
+    gcc
+    binutils
     lld
   ];
 
   home.sessionPath = [
-    "${config.home.homeDirectory}/.cargo/bin"
     "${pkgs.gcc}/bin"
     "${pkgs.binutils}/bin"
     "${pkgs.lld}/bin"
@@ -45,20 +52,7 @@ in {
     rustflags = ["-C", "link-arg=-fuse-ld=lld"]
   '';
 
-  home.activation.setupRust = lib.hm.dag.entryAfter ["linkGeneration"] ''
-    RUSTUP="${pkgs.rustup}/bin/rustup"
-    if ! command -v rustc &> /dev/null; then
-      echo "Installing stable Rust via Rustup..."
-      export PATH="$HOME/.cargo/bin:$PATH"
-      $RUSTUP default stable
-    else
-      echo "Rust is already installed."
-    fi
-    $RUSTUP target add wasm32-wasip2
-  '';
-
-
-  home.activation.installZedNetCoreDbg = lib.hm.dag.entryAfter ["setupRust"] ''
+  home.activation.installZedNetCoreDbg = lib.hm.dag.entryAfter [ "linkGeneration" ] ''
     ${installExtension}
   '';
 

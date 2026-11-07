@@ -8,6 +8,4 @@
       Policy.AutoEnable = true;
     };
   };
-
-  services.blueman.enable = true;
 }

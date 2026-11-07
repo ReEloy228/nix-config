@@ -1,4 +1,7 @@
 { pkgs, ... }:
 {
-  home.packages = with pkgs; [ unityhub ];
+  home.packages = with pkgs; [
+    unityhub
+    ninja
+  ];
 }

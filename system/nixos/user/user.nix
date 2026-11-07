@@ -3,7 +3,7 @@
   users.users.user = {
     isNormalUser = lib.mkForce true;
     description = lib.mkForce "User";
-    extraGroups = lib.mkForce [
+    extraGroups = [
       "networkmanager"
       "wheel"
       "video"

@@ -2,7 +2,7 @@
 {
   programs.fish.shellAliases = {
     nix-sync = "sudo python3 /etc/nixos/system/scripts/sync/sync.py /home/user/Projects/nixos-config --ignore-file /etc/nixos/system/scripts/sync/sync.ignore --dontsync-file /etc/nixos/system/scripts/sync/dontsync.ignore";
-    nix-build = "nix-sync && sudo nixos-rebuild switch --flake /etc/nixos#nixos";
+    nix-build = "nix-sync && sudo nixos-rebuild switch --flake /etc/nixos#nixos --cores=6 --max-jobs=5 --sudo";
     nix-boot = "nix-sync && sudo nixos-rebuild boot --flake /etc/nixos#nixos";
     nix-test = "nix-sync && sudo nixos-rebuild test --flake /etc/nixos#nixos";
     nix-repair = "sudo nix-store --verify --check-contents --repair";
