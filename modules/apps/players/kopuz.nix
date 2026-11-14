@@ -17,7 +17,5 @@ in
       TimeoutStopSec = "10s";
       Restart = "no";
     };
-
-    Install.WantedBy = [ "default.target" ];
   };
 }

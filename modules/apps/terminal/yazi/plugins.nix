@@ -5,11 +5,6 @@
       package = pkgs.yaziPlugins.git;
       setup = true;
     };
-    # "glow" может требовать setup, если вы хотите настроить его поведение
-    # "glow" = {
-    #   package = pkgs.yaziPlugins.glow;
-    #   setup = true;
-    # };
 
     "smart-enter" = pkgs.yaziPlugins.smart-enter;
     "smart-filter" = pkgs.yaziPlugins.smart-filter;

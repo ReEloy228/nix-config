@@ -1,7 +1,6 @@
 {
   lib,
   pkgs,
-  config,
   ...
 }:
 
@@ -23,23 +22,11 @@ let
       mainProgram = "csharp-ls";
     };
   };
-
-  csharpExtDir = "${config.home.homeDirectory}/.local/share/zed/extensions/work/csharp";
-  zedBinary = lib.getExe pkgs.zed-editor;
-  zedWrapper = pkgs.writeShellScriptBin "zed-fix" ''
-    if [ -d "${csharpExtDir}" ]; then
-      find "${csharpExtDir}" -type d -exec chmod u+rwx {} \;
-      find "${csharpExtDir}" -type f -exec chmod u+rw {} \;
-    fi
-    exec ${zedBinary} "$@"
-  '';
-
 in
 {
   home.packages = with pkgs; [
     csharp-ls-net10
     dotnet-sdk_10
-    zedWrapper
   ];
 
   programs.zed-editor.userSettings = {
@@ -54,16 +41,4 @@ in
       };
     };
   };
-
-  home.file.".local/bin/zed".source = "${zedWrapper}/bin/zed-fix";
-  home.file.".local/share/applications/zed-fix.desktop".text = ''
-    [Desktop Entry]
-    Name=Zed [Fixed C#]
-    Exec=${zedWrapper}/bin/zed-fix %F
-    Icon=zed
-    Type=Application
-    Categories=Development;TextEditor;
-    Terminal=false
-    StartupWMClass=Zed
-  '';
 }
