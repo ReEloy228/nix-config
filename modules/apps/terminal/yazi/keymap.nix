@@ -5,7 +5,7 @@
       {
         on = [ "Enter" ];
         run = "plugin smart-enter";
-        desc = "Войти в директорию или открыть файл";
+        desc = "Enter to directory or open file";
       }
       {
         on = [ "<C-y>" ];

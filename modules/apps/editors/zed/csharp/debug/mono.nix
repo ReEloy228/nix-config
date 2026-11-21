@@ -59,34 +59,17 @@ in
   '';
 
   home.file.".config/zed/debug-readme-unity.txt".text = ''
-    Отладка Unity через Mono (расширение Unity Engine):
+    Debugging Unity via Mono (Unity Engine extension):
 
-    1. Убедитесь, что расширение Unity Engine установлено в Zed
-       (оно копируется автоматически при home-manager switch).
+    1. Make sure the Unity Engine extension is installed in Zed (it is copied automatically during the home-manager switch).
+    2. Enable Editor Attaching in Unity: Edit → Preferences → General → Editor Attaching
+    3. Launch Unity with your project and wait for it to load completely.
+    4. Find the PID of the Unity main process: pgrep -f "Unity -projectpath /path/to/your/project" (note that -projectpath with a lowercase is the main process, import workers use -projectPath with a large P and are not suitable)
+    5. Calculate the Unity debugger port using the formula: port = 56000 + (PID % 1000) Example: PID = 81327 → port = 56000 + 327 = 56327
+    6. Copy the debug-template-unity.json to.zed/debug.json at the root of the project: mkdir -p /path/to/project/.zed cp ~/.config/zed/debug-template-unity.json /path/to/project/.zed/debug.json
+    7. Open.zed/debug.json and replace the "port" value with the calculated value.
+    8. Run debugging in Zed (F5) and select the "Attach to Unity (Mono)" configuration.
 
-    2. Включите Editor Attaching в Unity:
-       Edit → Preferences → General → Editor Attaching
-
-    3. Запустите Unity с вашим проектом и дождитесь полной загрузки.
-
-    4. Найдите PID главного процесса Unity:
-       pgrep -f "Unity -projectpath /путь/к/вашему/проекту"
-       (обратите внимание на -projectpath с маленькой буквы — это главный процесс,
-        воркеры импорта используют -projectPath с большой P и не подходят)
-
-    5. Вычислите порт отладчика Unity по формуле:
-       port = 56000 + (PID % 1000)
-       Пример: PID = 81327 → port = 56000 + 327 = 56327
-
-    6. Скопируйте debug-template-unity.json в .zed/debug.json в корне проекта:
-       mkdir -p /путь/к/проекту/.zed
-       cp ~/.config/zed/debug-template-unity.json /путь/к/проекту/.zed/debug.json
-
-    7. Откройте .zed/debug.json и замените значение "port" на вычисленное.
-
-    8. Запустите отладку в Zed (F5) и выберите конфигурацию "Attach to Unity (Mono)".
-
-    Примечание: PID Unity меняется при каждом перезапуске редактора,
-    поэтому порт нужно пересчитывать заново.
+    Note: Unity's PID changes every time the editor is restarted, Therefore, the port needs to be recalculated.
   '';
 }

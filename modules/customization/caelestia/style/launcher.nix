@@ -1,12 +1,12 @@
-{ lib, ... }:
+{ ... }:
 {
-  programs.caelestia.settings.launcher = {
+  programs.caelestia-dots.caelestia.shell.settings.launcher = {
     useFuzzy = {
-      actions = lib.mkForce true;
-      apps = lib.mkForce true;
-      schemes = lib.mkForce true;
-      variants = lib.mkForce true;
-      wallpapers = lib.mkForce true;
+      actions = true;
+      apps = true;
+      schemes = true;
+      variants = true;
+      wallpapers = true;
     };
   };
 }

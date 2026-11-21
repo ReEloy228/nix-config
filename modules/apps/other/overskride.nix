@@ -1,6 +1,4 @@
 { pkgs, ... }:
 {
-  home.packages = with pkgs; [
-    overskride
-  ];
+  home.packages = with pkgs; [ overskride ];
 }

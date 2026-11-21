@@ -1,8 +1,9 @@
-{ lib, ... }:
+{ ... }:
 {
-  programs.caelestia.settings.bar = {
-    tray.recolour = lib.mkForce true;
-    statusIcons = lib.mkForce [
+  programs.caelestia-dots.caelestia.shell.settings.bar = {
+    tray.recolour = true;
+
+    statusIcons.__override = [
       {
         id = "lockStatus";
         enabled = true;

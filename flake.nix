@@ -31,15 +31,15 @@
       inputs.caelestia-cli.follows = "caelestia-cli";
     };
     caelestia-nixos = {
-      #url = "path:/home/user/Projects/caelestia-nixos";
-      url = "github:reeloy228/caelestia-nixos";
+      url = "path:/home/user/Projects/caelestia-nixos";
+      #url = "github:reeloy228/caelestia-nixos";
       inputs.nixpkgs.follows = "nixpkgs-unstable";
     };
     caelestia-stylix-sync.url = "github:ReEloy228/caelestia-stylix-sync";
 
     hyprKCS = {
       url = "github:kosa12/hyprKCS";
-      inputs.nixpkgs.follows = "nixpkgs"; # Рекомендуется, чтобы избежать дублирования nixpkgs
+      inputs.nixpkgs.follows = "nixpkgs";
     };
 
     zen-browser = {
@@ -125,6 +125,8 @@
               rustPlatform = newRustPlatform;
             }
           );
+
+          kryoto-desktop = final.callPackage ./external/kryoto-desktop.nix { };
         })
       ];
 
@@ -139,6 +141,7 @@
           effectcraft
           word-craft
           palera1n
+          kryoto-desktop
           ;
       };
 

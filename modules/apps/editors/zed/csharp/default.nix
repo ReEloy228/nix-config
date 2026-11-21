@@ -5,7 +5,7 @@
 }:
 
 let
-  csharp-ls-net10 = pkgs.buildDotnetGlobalTool rec {
+  csharp-ls-net10 = pkgs.buildDotnetGlobalTool {
     pname = "csharp-ls";
     version = "0.24.0";
     nugetSha256 = "sha256-hpLTqgxwXiycfTaSd3nliS1quNB3VHLpSDBo+V18a9A=";

@@ -1,22 +1,22 @@
 {
   inputs,
-  lib,
   ...
 }:
 let
   inherit (inputs.caelestia-nixos.lib) sessionCommands;
 in
 {
-  programs.caelestia.settings.general = {
+  programs.caelestia-dots.caelestia.shell.settings.general = {
     apps = {
-      playback = lib.mkForce [ "mpv" ];
-      explorer = lib.mkForce [ "yazi" ];
-      terminal = lib.mkForce [ "foot" ];
+      playback.__override = [ "mpv" ];
+      explorer.__override = [ "yazi" ];
+
+      terminal.__override = [ "foot" ];
     };
     idle = {
-      inhibitWhenAudio = lib.mkForce true;
-      lockBeforeSleep = lib.mkForce true;
-      timeouts = lib.mkForce [
+      inhibitWhenAudio = true;
+      lockBeforeSleep = true;
+      timeouts.__override = [
         {
           timeout = 480;
           idleAction = "lock";

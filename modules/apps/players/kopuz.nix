@@ -1,21 +1,37 @@
-{ inputs, pkgs, ... }:
-let
-  kopuzPkg = inputs.kopuz.packages.${pkgs.stdenv.hostPlatform.system}.default;
-in
+{ config, ... }:
 {
-  home.packages = [ kopuzPkg ];
+  programs.kopuz = {
+    enable = true;
+    settings = {
+      language = "en";
+      music_directory = [ "/home/user/Music" ];
+      volume = 0.6;
 
-  systemd.user.services.kopuz = {
-    Unit = {
-      Description = "Kopuz Music Player";
-      Before = [ "exit.target" ];
-    };
-
-    Service = {
-      ExecStart = "${kopuzPkg}/bin/kopuz";
-      KillSignal = "SIGTERM";
-      TimeoutStopSec = "10s";
-      Restart = "no";
+      ytdlp_options = {
+        audio_quality = 0;
+        convert_thumbnail = "";
+        cookies_from_browser = "firefox:${config.home.homeDirectory}/.config/zen/default";
+        embed_chapters = false;
+        embed_info_json = false;
+        embed_metadata = true;
+        embed_subs = false;
+        embed_thumbnail = true;
+        js_runtimes = "";
+        no_mtime = false;
+        no_playlist = false;
+        postprocess_thumbnail_square = false;
+        rate_limit = "";
+        split_chapters = false;
+        sponsorblock = false;
+        sponsorblock_mark = false;
+        write_auto_subs = false;
+        write_comments = false;
+        write_description = false;
+        write_info_json = false;
+        write_subs = false;
+        write_thumbnail = false;
+        xattrs = false;
+      };
     };
   };
 }

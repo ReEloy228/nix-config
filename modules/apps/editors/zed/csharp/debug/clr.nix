@@ -83,7 +83,6 @@ in
   '';
 
   home.file.".config/zed/debug-readme.txt".text = ''
-    Для настройки отладки в проекте:
     1. Copy debug-template.json to .zed/debug.json
     2. Adjust the paths for your project (.dll name, .NET version, .csproj name).
     3. Set a breakpoint and press F5.

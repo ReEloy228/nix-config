@@ -143,17 +143,14 @@
         ]
       },
       "locked": {
-        "lastModified": 1794660339,
-        "narHash": "sha256-4cVN80bjbpyDPW0u6bBtgDexHwERlNO+g7YIs41Sgy8=",
-        "owner": "reeloy228",
-        "repo": "caelestia-nixos",
-        "rev": "7833ea87b07b9b589ec04c536d370f1090e7c25a",
-        "type": "github"
+        "lastModified": 1794725311,
+        "narHash": "sha256-odleg4UD37xL0dJ5oBlevABONUmf7J7QsQuk+gtx+Yk=",
+        "path": "/home/user/Projects/caelestia-nixos",
+        "type": "path"
       },
       "original": {
-        "owner": "reeloy228",
-        "repo": "caelestia-nixos",
-        "type": "github"
+        "path": "/home/user/Projects/caelestia-nixos",
+        "type": "path"
       }
     },
     "caelestia-shell": {
@@ -445,11 +442,11 @@
         "rust-overlay": "rust-overlay"
       },
       "locked": {
-        "lastModified": 1794323563,
-        "narHash": "sha256-JeNqT6OQKT1kJ8kXCMZ1diUV0UY2w03/JpJkg192aDo=",
+        "lastModified": 1794685379,
+        "narHash": "sha256-yCaeVz9nWZ/TpT8FV52OPDhUhegaafwXCoKqDYh1ac8=",
         "owner": "temidaradev",
         "repo": "kopuz",
-        "rev": "b638d4e5ea65812e88c39d71f35443002340af5f",
+        "rev": "153276bd03c6c3b469f28e7bb8f10330a08f0f33",
         "type": "github"
       },
       "original": {
@@ -837,11 +834,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1793956102,
-        "narHash": "sha256-dASUovwB3DUoTm6daga0hsNZZAFCCGlUS4FPBjK0OwA=",
+        "lastModified": 1794646145,
+        "narHash": "sha256-rpqDyUM/d5fACYB8W+wKxxO57ICWjjalzb2X25oFFkY=",
         "owner": "oxalica",
         "repo": "rust-overlay",
-        "rev": "74cebce67ef6671ea48fda353a5be2d229bd2920",
+        "rev": "5b87ee0513c29127a01ad06e9cb362ea5ce91e78",
         "type": "github"
       },
       "original": {
@@ -858,11 +855,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1794008403,
-        "narHash": "sha256-iulqzZOtPg/937/2GA5fjh290ae0/r1loEWffb9I9dw=",
+        "lastModified": 1794828534,
+        "narHash": "sha256-Mmju1OE4rYcw5QHonYQlPZajMBp3k0fRIxPwVOOE5ag=",
         "owner": "ViceVerse-cz",
         "repo": "Serein",
-        "rev": "a3ae6385e84d1ad58c5ac04c58bfd026fd2d4352",
+        "rev": "a0364204d24535b9e928a23b3da564869a6aef69",
         "type": "github"
       },
       "original": {

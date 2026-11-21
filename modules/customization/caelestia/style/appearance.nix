@@ -1,11 +1,11 @@
-{ lib, ... }:
+{ ... }:
 {
-  programs.caelestia.settings.appearance = {
-    anim.durations.scale = lib.mkForce 1.75;
+  programs.caelestia-dots.caelestia.shell.settings.appearance = {
+    anim.durations.scale = 1.75;
     transparency = {
-      enabled = lib.mkForce true;
-      base = lib.mkForce 0.8;
-      layers = lib.mkForce 0.55;
+      enabled = false;
+      base = 0.8;
+      layers = 0.55;
     };
   };
 }
