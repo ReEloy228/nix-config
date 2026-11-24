@@ -103,6 +103,7 @@
         (final: prev: {
           caelestia-sync = caelestia-stylix-sync.packages.${system}.caelestia-sync;
 
+          soundcloud-desktop = final.callPackage ./external/soundcloud-desktop.nix { };
           palera1n = final.callPackage ./external/palera1n.nix { };
           v2raya = final.callPackage ./external/v2raya.nix { };
 
@@ -141,6 +142,7 @@
           word-craft
           palera1n
           kryoto-desktop
+          soundcloud-desktop
           ;
       };
 

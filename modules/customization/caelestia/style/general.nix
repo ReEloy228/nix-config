@@ -18,16 +18,16 @@ in
       lockBeforeSleep = true;
       timeouts.__override = [
         {
-          timeout = 480;
+          timeout = 1440;
           idleAction = "lock";
         }
         {
-          timeout = 960;
+          timeout = 2400;
           idleAction = "dpms off";
           returnAction = "dpms on";
         }
         {
-          timeout = 1200;
+          timeout = 3600;
           idleAction = sessionCommands.sleep;
         }
       ];

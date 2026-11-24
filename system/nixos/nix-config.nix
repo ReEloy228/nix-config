@@ -15,6 +15,12 @@
         "nix-command"
         "flakes"
       ];
+      extra-substituters = [
+        "https://kopuz.cachix.org"
+      ];
+      extra-trusted-public-keys = [
+        "kopuz.cachix.org-1:J2X3AnAYhKTJW5S3aCLoA1ckonQXVNZMQvhZA0YAufw="
+      ];
     };
   };
 }
