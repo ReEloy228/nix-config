@@ -106,6 +106,7 @@
           soundcloud-desktop = final.callPackage ./external/soundcloud-desktop.nix { };
           palera1n = final.callPackage ./external/palera1n.nix { };
           v2raya = final.callPackage ./external/v2raya.nix { };
+          yt-dlp = final.callPackage ./external/yt-dlp.nix { };
 
           word-craft = final.callPackage ./external/art-craft/word-craft.nix { };
 
