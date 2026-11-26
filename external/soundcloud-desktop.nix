@@ -4,11 +4,11 @@
 
 let
   pname = "soundcloud-desktop";
-  version = "9.0.0";
+  version = "9.1.0";
 
   src = pkgs.fetchurl {
     url = "https://github.com/zxcloli666/SoundCloud-Desktop/releases/download/${version}/soundcloud-desktop_${version}_amd64.AppImage";
-    hash = "sha256-ToIUb47v0K9KoXzhqxLid/BpFI0vTogcVBE1akyF+y0=";
+    hash = "sha256-ChycF881s+/UCQa4PXPEnuYkLs3V3ABwZG4lrGUDfKg=";
   };
 
   appimageContents = pkgs.appimageTools.extractType2 {

@@ -6,11 +6,11 @@
 
 let
   pname = "kryoto-desktop";
-  version = "0.3.11";
+  version = "0.4.0";
 
   src = fetchurl {
     url = "https://github.com/Kryoto-Dev/kryoto-desktop/releases/download/v${version}/Kryoto-Desktop_${version}_amd64.AppImage";
-    hash = "sha256-YW3ND6h6/MCum9CaJJVX4jTYq8kONKH16t1/3R3twEY=";
+    hash = "sha256-rZHZEAlG35V24iJpWDlZ2krazXbNnoYefDTcCakQhe8=";
   };
 
   appimageContents = appimageTools.extractType2 { inherit pname version src; };
